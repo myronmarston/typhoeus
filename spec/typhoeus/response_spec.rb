@@ -27,5 +27,11 @@ describe Typhoeus::Response do
       response = Typhoeus::Response.new(:requested_http_method => :delete)
       response.requested_http_method.should == :delete
     end
+
+    it "should store a request_firing_time" do
+      time = Time.now
+      response = Typhoeus::Response.new(:request_firing_time => time)
+      response.request_firing_time.should == time
+    end
   end
 end

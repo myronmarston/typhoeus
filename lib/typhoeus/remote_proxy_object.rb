@@ -20,13 +20,15 @@ module Typhoeus
         end
         
         unless @proxied_object
+          firing_time = Time.now
           Typhoeus.perform_easy_requests
           response = Response.new(:code => @easy.response_code,
                                   :headers => @easy.response_header,
                                   :body => @easy.response_body,
                                   :time => @easy.total_time_taken,
                                   :requested_url => @easy.url,
-                                  :requested_http_method => @easy.method)
+                                  :requested_http_method => @easy.method,
+                                  :request_firing_time => firing_time)
           if @easy.response_code >= 200 && @easy.response_code < 300
             Typhoeus.release_easy_object(@easy)
             @proxied_object = @success.nil? ? response : @success.call(response)
