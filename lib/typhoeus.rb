@@ -2,6 +2,7 @@ $LOAD_PATH.unshift(File.dirname(__FILE__)) unless $LOAD_PATH.include?(File.dirna
 
 require 'rack/utils'
 require 'digest/sha2'
+require 'typhoeus/ffi'
 require 'typhoeus/easy'
 require 'typhoeus/multi'
 require 'typhoeus/native'
