@@ -130,7 +130,7 @@ describe Typhoeus::Hydra do
     end
   end
 
-  it "memoizes GET reqeusts" do
+  it "memoizes GET requests" do
     hydra  = Typhoeus::Hydra.new
     first  = Typhoeus::Request.new("http://localhost:3000/foo", :params => {:delay => 1})
     second = Typhoeus::Request.new("http://localhost:3000/foo", :params => {:delay => 1})
